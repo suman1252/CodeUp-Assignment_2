@@ -44,12 +44,11 @@
 			String text = "Java";
 **/
 
-
 package AssignmentTask_2;
 
 import java.util.Scanner;
 
-public class Main {
+public class MyString {
 	static Scanner scanner = new Scanner(System.in);
 	static String originalString;
 	
@@ -58,16 +57,50 @@ public class Main {
 			System.out.print(Constant.ENTER_STRING);
 			originalString = scanner.nextLine();
 			
-//			append();
-//			WordsCount();
-//			replace();
-//			isPalindrome();
-//			MaxRepeat();
-//			Shift();
-//			Reverse();
-//			Sort();
-//			Split();
-//			Splice();
+			System.out.println(Constant.METHOD_COMMENT);
+			do {
+                System.out.println("\nenter the methodkey");
+                int methodkey = scanner.nextInt();
+                switch (methodkey) {
+                
+                case 1:
+                	 append();
+                    break;
+                case 2:
+                	 WordsCount();
+                    break;
+                case 3:
+                   replace();
+                    break;
+                case 4:
+                    isPalindrome();
+                    break;
+                case 5:
+                	MaxRepeat();
+                    break;
+                case 6:
+                    Shift();
+                    break;
+                case 7:
+                    Reverse();
+                    break;
+                case 8:
+                   Sort();
+                    break;
+                case 9:
+                    Split();
+                    break;
+                case 10:
+                   Splice();
+                    break;
+          
+
+                    default:
+                        System.out.println("Invalid method key");
+                        break;
+                }
+            } 
+			while(true);
 			
 		}
 	}
@@ -113,21 +146,22 @@ public class Main {
 
 	public static void replace() {
 		 System.out.println(Constant.ENTER_REPLACING_STRING);
-	        String str1= scanner.nextLine();
+	        String firstString= scanner.nextLine();
 	        
 	        System.out.println(Constant.ENTER_NEW_STRING);
-	        String str2 = scanner.nextLine();
+	        String secondString = scanner.nextLine();
 
 	        String newString = "";
 	        
 	        for (int i = 0; i < originalString.length(); i++) {
-	            char currentChar = originalString.charAt(i);
+	            char currentCharacter = originalString.charAt(i);
 
-	            if (originalString.substring(i).startsWith(str1)) {
-	                newString += str2;
-	                i = i + str1.length() -1;
-	            }else{
-	                newString = newString + currentChar;
+	            if (originalString.substring(i).startsWith(firstString)) {
+	                newString += secondString;
+	                i = i + firstString.length() -1;
+	            }
+	            else{
+	                newString = newString + currentCharacter;
 	            }
 	        }
 	        System.out.println("The replaced string is: "+newString);
@@ -153,8 +187,8 @@ public class Main {
 	
 	public static void MaxRepeat() {
 		int count = 1;
-		int maxCount = 1;
-		char maxChar = originalString.charAt(0);
+		int maximumCount = 1;
+		char maximumCharacter = originalString.charAt(0);
 		
 		for(int i=1; i<=originalString.length()-1; i++) {
 			if(originalString.charAt(i) == originalString.charAt(i-1)) {
@@ -163,22 +197,20 @@ public class Main {
 			else {
 				count = 1;
 			}
-			if(count >= maxCount) {
-				maxCount = count;
-				maxChar = originalString.charAt(i);
+			if(count >= maximumCount) {
+				maximumCount = count;
+				maximumCharacter = originalString.charAt(i);
 			
 			}
 		}
-		System.out.println("The maximum repeated character is: "+maxChar+"  ->  "+maxCount);
-//		System.out.println(maxChar);
-//		System.out.println(maxCount);
+		System.out.println("The maximum repeated character is: "+maximumCharacter+"  ->  "+maximumCount);
 	}
 	
 	
 	public static void Shift() {
-		//Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		
-		System.out.println("Enter the number of index: ");
+		System.out.println(Constant.ENTER_INDEX);
 		int index = scanner.nextInt();
 		
 		String part1 = "";
@@ -203,27 +235,28 @@ public class Main {
 		}
 		System.out.println("The reverse string is: "+newString);
 	}
-	
+
 	
 	public static void Sort() {
-		char[] chars = originalString.toCharArray();
+		char[] arrayOfCharacter = originalString.toCharArray();
 		
-		for(int i=0; i<chars.length-1; i++) {
-			for (int j=0; j<chars.length-1-i; j++) {
-				if(chars[j] > chars[j+1]) {
-					char temp = chars[j];
-					chars[j] = chars[j+1];
-					chars[j+1] = temp;
+		for(int i=0; i<arrayOfCharacter.length-1; i++) {
+			for (int j=0; j<arrayOfCharacter.length-1-i; j++) {
+				if(arrayOfCharacter[j] > arrayOfCharacter[j+1]) {
+					char temp = arrayOfCharacter[j];
+					arrayOfCharacter[j] = arrayOfCharacter[j+1];
+					arrayOfCharacter[j+1] = temp;
 				}
 			}
 		}
-		String newString = new String(chars);
+		String newString = new String(arrayOfCharacter);
 	    System.out.println(newString);
 	}
 	
 	
 	public static void Split() {
-        System.out.println("Enter a pattern for splitting into Array: ");
+        System.out.println(Constant.ENTER_PATTERN);
+        scanner.nextLine();
         String pattern = scanner.nextLine();
         String[] words = new String[originalString.length() + 1];
         int indexCount = 0;
@@ -231,7 +264,7 @@ public class Main {
         for (int i = 0; i < originalString.length(); i++) {
             if (originalString.startsWith(pattern, i)) {
                 words[indexCount++] = originalString.substring(0, i);
-                originalString = originalString.substring(i + pattern.length());
+                originalString =originalString .substring(i + pattern.length());
                 i = -1;
             }
         }
@@ -244,21 +277,22 @@ public class Main {
             withoutNullWords[i] = words[i];
         }
         System.out.println(java.util.Arrays.toString(withoutNullWords));
-    }
+   
+	}
 
 	
 	public static void Splice() {
-		 System.out.println("Enter starting Index ");
+		 System.out.println(Constant.ENTER_INDEX);
 	        int startIndex = scanner.nextInt();
 
-	        System.out.println("Enter length from starting Index ");
+	        System.out.println(Constant.ENTER_INDEX_LENGTH);
 	        int length = scanner.nextInt();
 
 	        String newString = "";
 	        for (int i = 0; i <originalString.length() ; i++) {
-	            char currentChar = originalString.charAt(i);
+	            char currentCharacter = originalString.charAt(i);
 	            if (!(i>=startIndex && i<=startIndex+length-1)) {
-	                newString += currentChar;
+	                newString += currentCharacter;
 	            }
 	        }
 	        System.out.println("Spliced String : "+newString);
