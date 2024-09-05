@@ -1,3 +1,50 @@
+/*
+ * Name : Suman Kumari
+ * Date: 04/09/2024
+ * 
+ * Problem Description :
+ *  [When the program is run, the user will first enter a string. After that, the program should
+	ask the user which operation they want to execute on the string. The available operations are
+	listed below: Append, CountWords, Replace, isPalindrome, Splice, Split,
+	MaxRepeatingCharacter, Sort, Shift, and Reverse. Each method should perform its
+	respective operation based on the user's input.]
+	
+	Examples:
+		1. append(String newString)
+			String currentString = "Hello";
+			append(" World"); // Result: "Hello World"
+			append(" Java"); // Result: "Hello World Java"
+		2. countWords()
+			String text = "Hello World from Codeup";
+			int wordCount = countWords(); // Result: 4
+		3. replace(String a, String b)
+			String text = "Java Programming";
+			replace('a', 'o'); // Result: "Jovo Progromming"
+			replace('ava', 'o'); // Result: "Jo Progromming"
+		4. isPalindrome()
+			String text = "madam";
+			boolean isPal = isPalindrome(); // Result: true
+		5. splice(int start, int length)
+			String text = "Academy";
+			splice(2, 2); // Result: "Acemy"
+		6. split(String pattern)
+			String text = "Codeup ACE Academy";
+			String[] words = split(“ “); // Result: ["Codeup", "ACE", "Academy"]
+		7. maxRepeat()
+			String text = "success";
+			char maxChar = maxRepeat(); // Result:
+			's' -> 3
+		8. sort()
+			String text = "program";
+			String sortedText = sort(); // Result: "agmnoprr"
+		9. shift(int n)
+			String text = "abcdef";
+			shift(2); // Result: "efabcd"
+		10. reverse()
+			String text = "Java";
+**/
+
+
 package AssignmentTask_2;
 
 import java.util.Scanner;
