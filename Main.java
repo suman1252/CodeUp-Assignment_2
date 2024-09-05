@@ -63,7 +63,7 @@ public class Main {
 //			replace();
 //			isPalindrome();
 //			MaxRepeat();
-			Shift();
+//			Shift();
 //			Reverse();
 //			Sort();
 //			Split();
@@ -221,6 +221,52 @@ public class Main {
 	    System.out.println(newString);
 	}
 	
+	
+	public static void Split() {
+        System.out.println("Enter a pattern for splitting into Array: ");
+        String pattern = scanner.nextLine();
+        String[] words = new String[originalString.length() + 1];
+        int indexCount = 0;
+
+        for (int i = 0; i < originalString.length(); i++) {
+            if (originalString.startsWith(pattern, i)) {
+                words[indexCount++] = originalString.substring(0, i);
+                originalString = originalString.substring(i + pattern.length());
+                i = -1;
+            }
+        }
+
+        words[indexCount] = originalString;
+
+
+        String[] withoutNullWords = new String[indexCount+1];
+        for (int i = 0; i < indexCount+1; i++) {
+            withoutNullWords[i] = words[i];
+        }
+        System.out.println(java.util.Arrays.toString(withoutNullWords));
+    }
+
+	
+	public static void Splice() {
+		 System.out.println("Enter starting Index ");
+	        int startIndex = scanner.nextInt();
+
+	        System.out.println("Enter length from starting Index ");
+	        int length = scanner.nextInt();
+
+	        String newString = "";
+	        for (int i = 0; i <originalString.length() ; i++) {
+	            char currentChar = originalString.charAt(i);
+	            if (!(i>=startIndex && i<=startIndex+length-1)) {
+	                newString += currentChar;
+	            }
+	        }
+	        System.out.println("Spliced String : "+newString);
+	    }
+	
+	
+}
+
 
 
 
